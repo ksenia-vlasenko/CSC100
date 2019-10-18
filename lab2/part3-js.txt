@@ -1,0 +1,17 @@
+Follow the steps carefully to add Google maps into your part 3.
+
+
+
+Step 1
+=======
+To embed a Google map, just go to map.google.com and find a map area of interest, then right-click "What is here?". From the sidebar, click "Share" and then click "Embed". You will see an <iframe></iframe> (similar to embedding a youtube video). Cut and paste that <iframe></iframe> to where you want your map to be into your HTML file.
+
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2645.6339494431136!2d-123.31165734876892!3d48.46355253627782!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x548f715738b5bc2f%3A0xe8425acaeb4a6298!2sLegacy+Maltwood+Gallery+(at+the+Mearns+Centre+-+McPherson+Library)!5e0!3m2!1sen!2sca!4v1516309872718" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+
+
+
+
+Step 2
+=======
+Cut and paste two shared Google map locations into two hyperlinks. Use "Share" in Google map and copy the shared link (e.g., "https://https://www.google.ca/maps/place/Saanich/...").
+

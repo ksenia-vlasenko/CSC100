@@ -1,0 +1,72 @@
+
+
+Follow the steps carefully. 
+  * Steps 1 to 3 are about adding a slideshow. 
+  * Steps 4-5 are about adding a Facebook button.
+
+
+
+
+Step 1
+======
+Cut and paste the following line into your <head></head> section. 
+
+
+<script src="slides-part2.js"></script>
+
+
+
+
+Step 2
+=======
+Add an id="myslideshow" into <img> tag.
+
+
+
+
+
+Step 3
+=======
+Modify "slides-part2.js" to your collection of images.
+
+
+
+Now, you can test your part2.html. The slideshow should work!
+
+
+
+Step 4
+=======
+Go to Facebook Like Button Configurator site:
+
+https://developers.facebook.com/docs/plugins/like-button#configurator
+
+Enter the "URL to Like", which should be your published URL of lab2 part 2, e.g.
+
+http://studentweb.uvic.ca/~mcheng/lab2/part2.html
+
+Now, configure the rest of the settings, including Layout, Action Type, Button Size, etc.
+
+Finally, click "Get Code".
+
+
+Step 5
+======
+
+There are two ways to embed the button: (1) use JavaScript, or (2) use <iframe>.
+
+Click "IFrame", then paste the following <iframe> to where you want the button to
+be:
+
+<iframe src="https://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fweb.uvic.ca%2F~mcheng%2Flab2%2Fpart2.html&width=450&layout=standard&action=like&size=small&show_faces=true&share=true&height=80&appId" width="450" height="80" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+
+Open your "part2.html" again. You should see the slideshow and the Facebook button together.
+
+
+
+
+
+
+
+
+
