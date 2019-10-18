@@ -1,0 +1,61 @@
+Step 1
+======
+Copy the following stylesheet into the <head></head>. 
+
+  <style>
+    body {
+      text-align: justify;
+      width: 1000px;
+    }
+  </style>
+
+Then open or reload csc100.html in your browser. The text and margin of your paragraphs should change.
+
+
+Step 2
+======
+Copy the following style rule inside <style></style>:
+
+    img {
+      display: block;
+      margin: auto;
+    }
+
+Then reload csc100.html. All images should now be centered on the page.
+
+
+Step 3
+======
+Copy the following style rule inside <style></style>:
+
+    h1 {
+      text-align: center;
+    }
+    
+Then reload csc100.html. All headings should now be centered.
+
+
+Step 4
+======
+Put the following <div id="myvideo"></div> around the <iframe></iframe> of the embedded youtube video, e.g.
+
+    <div id="myvideo">
+        <iframe src="https://www.youtube.com/embed/tTBDEyTyyiU"
+            allowfullscreen=""
+            width="560"
+            height="315"
+            frameborder="0">  
+        </iframe>
+    </div>
+
+Now, copy the following style rule inside <style></style>:
+
+    #myvideo {
+      display: block;
+      width: 560px;
+      height: 315px;
+      margin: auto;
+    }
+
+Open or reload "csc100.html", the youtube video should now be centered as well.
+
