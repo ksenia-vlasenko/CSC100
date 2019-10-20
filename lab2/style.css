@@ -96,7 +96,11 @@ a:hover {
 	font-size: 3em;
 }
 
-#logo h1 a {
+#logo h3 {
+	font-size:1em;
+}
+
+#logo h1 a, #logo h3 a {
 	color: #908F8F;
 	text-transform: uppercase;
 }

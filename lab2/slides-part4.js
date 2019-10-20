@@ -4,7 +4,7 @@
 // Step 2: add the id="myslideshow" into the img that you want to 
 //         change into a slideshow, e.g.
 //
-//    <img id="myslideshow" src="hawaii4.jpg" alt="hawaii" /> 
+//    <img id="myslideshow" src="park4.jpg" alt="park" /> 
 //
 // Step 3: change image.src in the show() function below
 //
@@ -23,25 +23,25 @@ function show()
    {
    	  
       // b.style.backgroundImage = "url(cover1.jpg)"
-      img.src = "hawaii1.jpg"
+      img.src = "park1.jpg"
       current = 1
    } 
    else if (current == 1) 
    {
       // b.style.backgroundImage = "url(cover2.jpg)"
-      img.src = "hawaii2.jpg"
+      img.src = "park2.jpg"
       current = 2
    } 
    else if (current == 2) 
    {
       // b.style.backgroundImage = "url(cover3.jpg)"
-      img.src = "hawaii3.jpg"
+      img.src = "park3.jpg"
       current = 3
    }
    else if (current == 3) 
    {
       // b.style.backgroundImage = "url(cover4.jpg)"
-      img.src = "hawaii4.jpg"
+      img.src = "park4.jpg"
       current = 0
    }
 
