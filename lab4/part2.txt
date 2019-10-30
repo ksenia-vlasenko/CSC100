@@ -1,0 +1,103 @@
+We are going to create a personalized youtube channel player of your favorite artist. There is a single HTML, which contains three sections, <html></html>, <style></style> and
+<script></script>.
+
+It is the JavaScript inside the <script></script> section that makes this player possible, so most changes are made inside this section.
+
+
+Step 1
+------
+Study "videos.html" carefully, begins at <body> till </body>.
+
+There is only one <h1> heading. There is an "embed-container" class, which is the container (a box) that holds the youtube video. There is a <form>, with a <select> menu that contains 6 <option>s, that is your pull-down playlist.
+
+And, finally, there are 3 <button>s, "Play", "Pause" and "Next". There is an id="myalbum" inside the <select> tag which is used by JavaScript to choose the playlist item.
+
+<form>
+  <select id="myalbum">
+    <option value="0" selected>video1</option>
+    <option value="1"         >video2</option>
+    <option value="2"         >video3</option>
+    <option value="3"         >video4</option>
+    <option value="4"         >video5</option>
+    <option value="5"         >video6</option>
+  </select>
+</form>
+
+Notice the value starts at "0". So your last <option> should have a value of "5" if you have only 6 videos. The "selected" <option> means that this is the default.
+
+First, you need to add an onclick attribute to each button (similar to what you did in part 1). That is,
+
+  <button class="round" onclick="play()" > Play </button>
+  <button class="round" onclick="pause()"> Pause </button>
+  <button class="round" onclick="next()" > Next </button>
+
+so that when click, it will call the corresponding JavaScript functions, i.e., play(), pause() and next().
+
+Now, reload the page, the click the Play button and watch the yotube video playing.
+
+
+
+
+Step 2
+--------
+To change the playlist, you need to update:
+
+
+            //   this is the playlist of "album"
+const myPlayList = makeid("https://www.youtube.com/watch?v=sWisuBtbypE") +
+                   ", " +
+                   makeid("https://www.youtube.com/watch?v=I6Vw4wHVFt0") + 
+                   ", " +
+                   makeid("https://www.youtube.com/watch?v=ZfFT68pw3EI") +
+                   ", " +
+                   makeid("https://www.youtube.com/watch?v=6sECozSy7FY") +
+                   ", " +
+                   makeid("https://www.youtube.com/watch?v=zOQGu42reWE") +
+                   ", " +
+                   makeid("https://www.youtube.com/watch?v=m7BMd70vfoI")
+                 
+Each "https://..." should be your youtube video URL. Just copy the chosen youtube video URL and paste inside the " and ".
+
+Then, inside the HTML section:
+
+<form>
+  <select id="myalbum">
+    <option class="myoption" value="0" selected>video1</option>
+    <option class="myoption" value="1"         >video2</option>
+    <option class="myoption" value="2"         >video3</option>
+    <option class="myoption" value="3"         >video4</option>
+    <option class="myoption" value="4"         >video5</option>
+    <option class="myoption" value="5"         >video6</option>  
+  </select>
+</form>
+
+Change each "video1", "video2", ..., to a description of your selected youtube video.
+
+You can do one at a time. Change the playlist "https://" for the first video, and change "video1" to that description. Reload the page and see if it works. If it works, then try the second video. (Note: Some, e.g., VEVO, videos only work after you publish your page first!!!)
+
+Repeat this step until you have completed 6 videos of your choice.
+
+You may also need to change the <title> and <h1> to your video playlist.
+
+
+
+Step 3
+------
+
+Finally, you need to add a new button, called "Prev" (for Previous). Copy the following line just below the last <button>.
+
+<button class="round" onclick="prev()" > Prev </button>
+
+The JavaScript function prev() has an empty body, i.e., there is nothing inside this function.
+
+Copy the body of function next() into prev(). Then, update the album.value so that it goes backward, instead of going forward. Study the next() function first!
+
+
+
+
+Step 4
+-------
+Modify the stylesheet in <style></style> section to change the background, border and font used. Just add the CSS style properties to deal with background, border and fonts.
+
+
+

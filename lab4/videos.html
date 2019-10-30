@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Yoga</title>
+
+<link href="https://fonts.googleapis.com/css?family=Jomolhari&display=swap" rel="stylesheet">
+<script src="https://www.youtube.com/iframe_api"></script>
+
+<style>
+body {
+  background: grey;
+  font-family: 'Jomolhari', serif;
+}
+
+h1 {
+  width: 100%;
+  text-align: center;
+  color: yellow;
+}
+/* 
+  we use the "embed-container" class to make the youtube
+  videos mobile-friendly; it will scale to the full width
+  of the screen
+*/
+.embed-container 
+{ 
+  position: relative; 
+  padding-bottom: 56.25%; 
+  height: 0; 
+  overflow: hidden; 
+  max-width: 100%; 
+  border: 15px ridge blue;
+} 
+
+.embed-container #video-placeholder 
+{ 
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  width: 100%; 
+  height: 100%;
+  margin: 0px 0px 0px 0px;
+  padding: 0px 17px 0px 0px;
+}
+
+/* we make the menu items BIGGER!!! */
+#album 
+{
+  height: 50px;
+  width: 100%;
+  font-size: 24px;
+  outline: none !important;
+  font-family: inherit;
+}
+
+#album select {
+  font-family: inherit;
+}
+
+
+#album option.myoption {
+  font-family: inherit;
+}
+
+
+/* finally, we choose to use BIG ROUND BUTTONS!!!  */
+button.round
+{
+  width:100px;
+  height:100px;
+  background-color:#DAF7A6;
+  border:1px solid #DAF7A6; 
+  color:#004DFF;
+  font-size:1.6em;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  border-radius: 50px;
+  -webkit-box-shadow: 0 0 10px rgba(0,0,0, .75);
+  -moz-box-shadow: 0 0 10px rgba(0,0,0, .75);
+  box-shadow: 2px 2px 15px rgba(0,0,0, .75);
+  outline: none !important;
+  font-family: inherit;
+}
+
+
+button.round:hover
+{
+  background:#c20b0b;
+  border:1px solid #c20b0b;
+  -webkit-box-shadow: 0px 0px 5px rgba(0,0,0, .75);
+  -moz-box-shadow: 0px 0px 5px rgba(0,0,0, .75);
+  box-shadow: 0px 0px 5px rgba(0,0,0, .75);
+  font-family: inherit;
+}
+
+
+#mybuttons {
+  width: 100%;
+  text-align: center;
+}
+
+</style>
+
+<script>
+var player   // the youtube player
+var album    // the album to be played
+
+
+function makeid(url)
+{
+
+        var newval = ''
+
+        if (newval = url.match(/(\?|&)v=([^&#]+)/)) {
+
+            return newval.pop()
+
+        } else if (newval = url.match(/(\.be\/)+([^\/]+)/)) {
+
+            return newval.pop()
+
+        } else if (newval = url.match(/(\embed\/)+([^\/]+)/)) {
+
+            return newval.pop().replace('?rel=0','')
+
+        }
+
+}
+            //   this is the playlist of "album"
+const myPlayList = makeid("https://www.youtube.com/watch?v=h6lKRlAjq2s") +
+                   ", " +
+                   makeid("https://www.youtube.com/watch?v=GAnKh5kKpgA") + 
+                   ", " +
+                   makeid("https://www.youtube.com/watch?v=kuSZEZ0fCY0") +
+                   ", " +
+                   makeid("https://www.youtube.com/watch?v=niiuYG2NDRM") +
+                   ", " +
+                   makeid("https://www.youtube.com/watch?v=v7SN-d4qXx0") +
+                   ", " +
+                   makeid("https://www.youtube.com/watch?v=Sxddnugwu-8")
+                 
+                 
+
+
+function onYouTubeIframeAPIReady() 
+{
+    player = new YT.Player('video-placeholder', {
+        width: 560,
+        height: 310,
+        videoId: '',
+        playerVars: {
+            color: 'white', // color of letter overlay
+            controls: '0',  // no controls
+            playlist: myPlayList
+        },
+        events: {
+            'onStateChange': onPlayerStateChange
+        }
+    })
+}
+
+
+function onPlayerStateChange(event) 
+{
+    if (event.data == YT.PlayerState.PLAYING) 
+    {
+        // update the album playlist
+        album.value = player.getPlaylistIndex()
+    }
+}
+
+
+
+function play() 
+{
+
+    if ((album.value == player.getPlaylistIndex()) &&
+        (player.getPlayerState() == YT.PlayerState.PAUSED) )  
+    {
+        // continue to play from where it is paused
+        player.playVideo()
+    } 
+    else 
+    {
+        player.playVideoAt(album.value)         
+    }    
+}
+
+
+function next() 
+{
+
+    player.stopVideo()
+
+    // change the pull-down menu
+    if (album.value == "0") 
+    {
+        album.value = "1"
+    } 
+    else if (album.value == "1") 
+    {
+        album.value = "2"
+    } 
+    else if (album.value == "2") 
+    {
+        album.value = "3"
+    }
+    else if (album.value == "3") 
+    {
+        album.value = "4"
+    } 
+    else if (album.value == "4") 
+    {
+        album.value = "5"
+    }
+    else if (album.value == "5") 
+    {
+        album.value = "0"
+    }
+
+    // now, play next video on the playlist from the beginning
+    player.playVideoAt(album.value)    
+}
+
+
+// copy your next function here and call it "prev"
+function prev() 
+{
+ player.stopVideo()
+
+    // change the pull-down menu
+    if (album.value == "0") 
+    {
+        album.value = "5"
+    } 
+    else if (album.value == "5") 
+    {
+        album.value = "4"
+    } 
+    else if (album.value == "4") 
+    {
+        album.value = "3"
+    }
+    else if (album.value == "3") 
+    {
+        album.value = "2"
+    } 
+    else if (album.value == "2") 
+    {
+        album.value = "1"
+    }
+    else if (album.value == "1") 
+    {
+        album.value = "0"
+    }
+
+    // now, play next video on the playlist from the beginning
+    player.playVideoAt(album.value) 
+}
+
+
+function pause() 
+{
+    if (player.getPlayerState() == YT.PlayerState.PAUSED) 
+    {
+        // resume playing from where it is paused
+        player.playVideo()
+    } 
+    else 
+    {
+        // pause it
+        player.pauseVideo()
+    }
+}
+
+// when the webpage is loaded
+window.onload = function() 
+{
+  album=document.getElementById("myalbum")
+}
+</script>
+
+</head>
+
+<body>
+<h1>Yoga</h1>
+
+<div class="embed-container">
+  <div id="video-placeholder"></div>
+</div>
+
+<br>
+
+<form>
+  <select id="myalbum">
+    <option class="myoption" value="0" selected>Yoga for Inner Space Travel</option>
+    <option class="myoption" value="1"         >Self Love Yoga</option>
+    <option class="myoption" value="2"         >Yoga Wash - Detox Flow</option>
+    <option class="myoption" value="3"         >15 Min Yoga For When You Are Stuck</option>
+    <option class="myoption" value="4"         >Yoga For Bedtime</option>
+    <option class="myoption" value="5"         >Yoga For Depression</option>  
+  </select>
+</form>
+
+<br>
+
+<div id="mybuttons">
+	<button class="round" onclick="play()" > Play </button>
+  <button class="round" onclick="pause()"> Pause </button>
+  <button class="round" onclick="next()" > Next </button>
+  <button class="round" onclick="prev()" > Prev </button>
+
+</div>
+
+</body>
+</html>
