@@ -60,7 +60,8 @@ img {
 
 
 <script> 
-var slideShowTimer = setInterval( show, 2000 )   // play show() every 2 seconds
+var slideShowTimer //= setInterval( show, 2000 )   // play show() every 2 seconds
+var started = false
 var current = 0     // current slideshow, 0, 1, 2, 0, 1, 2 and so on
 var img             // image to be changed
 var heading         // heading to be changed
@@ -69,7 +70,7 @@ var heading         // heading to be changed
 function show() 
 {
 
-   if (current == 0) 
+   if (current === 0) 
    {
    	  img.src = "plath.jpg"
       heading.innerHTML = "Sylvia Plath 1"
@@ -105,23 +106,29 @@ function show()
       heading.innerHTML = "Haruki Murakami 6"
       current = 0
    }
-    
-
+  
 }
 
 
 
 function play() 
 {
-	  // create a timer once every 2000 milliseconds for "show()"
-	slideShowTimer = setInterval( show, 2000 )
-  img.classList.add("w3-animate-zoom")
+	if(started === false) {
+    if(current === 0) {
+      current = current + 1
+    }
+    // create a timer once every 2000 milliseconds for "show()"
+    slideShowTimer = setInterval( show, 2000 )
+    img.classList.add("w3-animate-zoom")
+    started = true
+  }
 }
 
 
 
 function stop()
 {
+  started = false
 	clearInterval(slideShowTimer)
 	img.classList.remove("w3-animate-zoom")
 }
@@ -139,7 +146,6 @@ window.onload = function()
 
 
 <body>
-<h1>Famous Writers</h1>
 <h1 id="myheading">Famous Writers</h1>
 <img id="myimage" src="plath.jpg">
 

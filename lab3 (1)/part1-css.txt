@@ -1,0 +1,156 @@
+Step 1
+------
+First, make sure that your HTML files don't have any inline styles like:
+
+<body style="...." align="...">
+<div align="...">
+<span style="...">
+
+The reason is that inline styles will override all CSS stylesheets. As a result, you won't see any changes even if you add new style rules.
+
+
+
+
+
+Step 2
+-------
+Open "csc100.html" inside your browser after you remove all inline styles. It should look like an ordinary HTML file with text and images only, but no width, no justification, no colors, no fonts, etc.
+
+
+
+
+
+Step 3
+-------
+Copy this into your <head> </head> section:
+
+<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet"> 
+
+  <style>
+  body {
+    width: 1200px;
+    text-align: justify;
+    font-family: 'Lobster', cursive;
+    margin: 20px 20px;
+  }
+
+  h1 {
+    width: 800px;
+    text-align: center;
+    margin: 25px auto 25px auto;
+  }
+
+  p {
+    width: 1000px;
+    margin: 20px auto 20px auto;
+  }
+
+  img {
+    display: block;
+    margin: auto;
+    padding: 2px;
+    border: 5px solid red;
+  }
+
+  #myvideo {
+    display: block;
+    width: 560px;
+    height: 315px;
+    margin: 10px auto 10px auto;
+    padding: 2px;
+    border: 5px solid red;
+  }
+  </style>
+
+and save and then reload your page in your browser. Assume that you have some
+<h1>, <p>, <img> and a embedded youtube with a <div id="myvideo">. If not, then
+just add the "id".
+
+
+Now, reload your "csc100.html" in your browser.
+
+
+
+Step 4
+-------
+
+Insert the following <figure> tag around your first image, e.g.,
+
+    <figure>
+       <img src="images/csc100a.jpg" alt="csc100">
+       <figcaption><br>This is my class of CSC 100 in Spring of 2018.</figcaption>
+    </figure>
+
+Please note the images are saved inside a folder "images".
+
+Then, add the following style rule in your <style> </style>:
+
+  figure {
+     margin: auto;
+     float: none;
+     width: 70%;
+     text-align: center;
+     font-style: italic;
+     font-size: smaller;
+     text-indent: 0;
+     border: thin red solid;
+     margin: auto;
+     padding: 10px;
+   }
+
+
+
+Step 5
+-------
+You also change the background using an image instead of background-color:
+
+body {
+  width : 1000px;
+  background: url("images/uvic.jpg");
+}
+
+Reload the page inside your browser.
+
+Now, add the following attribute and see the changes to your webpage:
+
+  background-attachment: fixed;
+
+Try again in your browser.
+
+
+
+Step 6
+-------
+
+Add the following classes inside <style></style>:
+
+.w3-animate-fading {animation:fading 10s infinite}@keyframes fading{0%{opacity:0}50%{opacity:1}100%{opacity:0}}
+.w3-animate-opacity{animation:opac 10s}@keyframes opac{from{opacity:0} to{opacity:1}}
+.w3-animate-top{position:relative;animation:animatetop 10s}@keyframes animatetop{from{top:-300px;opacity:0} to{top:0;opacity:1}}
+.w3-animate-left{position:relative;animation:animateleft 10s}@keyframes animateleft{from{left:-300px;opacity:0} to{left:0;opacity:1}}
+.w3-animate-right{position:relative;animation:animateright 10s}@keyframes animateright{from{right:-300px;opacity:0} to{right:0;opacity:1}}
+.w3-animate-bottom{position:relative;animation:animatebottom 10s}@keyframes animatebottom{from{bottom:-300px;opacity:0} to{bottom:0;opacity:1}}
+.w3-animate-zoom {animation:animatezoom 10s}@keyframes animatezoom{from{transform:scale(0)} to{transform:scale(1)}}
+
+There are 7 classes, which came from W3School on animation. They are
+ 1. class="w3-animate-fading"
+ 2. class="w3-animate-opacity"
+ 3. class="w3-animate-top"
+ 4. class="w3-animate-left"
+ 5. class="w3-animate-right"
+ 6. class="w3-animate-bottom"
+ 7. class="w3-animate-zoom"
+
+ Add one of these classes to your first image, e.g.,
+
+        <img class="w3-animate-zoom" src="images/csc100a.jpg" alt="csc100">
+
+Reload your page and see what happens.
+
+
+Step 7
+------
+
+Repeat step 6 to other images using different classes. See which one that you prefer.
+
+

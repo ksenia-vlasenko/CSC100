@@ -173,7 +173,6 @@ function onPlayerStateChange(event)
 
 function play() 
 {
-
     if ((album.value == player.getPlaylistIndex()) &&
         (player.getPlayerState() == YT.PlayerState.PAUSED) )  
     {
@@ -292,7 +291,7 @@ window.onload = function()
 <br>
 
 <form>
-  <select id="myalbum">
+  <select id="album">
     <option class="myoption" value="0" selected>Yoga for Inner Space Travel</option>
     <option class="myoption" value="1"         >Self Love Yoga</option>
     <option class="myoption" value="2"         >Yoga Wash - Detox Flow</option>
@@ -306,7 +305,7 @@ window.onload = function()
 
 <div id="mybuttons">
 	<button class="round" onclick="play()" > Play </button>
-  <button class="round" onclick="pause()"> Pause </button>
+  <button class="round" onclick="pause()"> Pause</button>
   <button class="round" onclick="next()" > Next </button>
   <button class="round" onclick="prev()" > Prev </button>
 
